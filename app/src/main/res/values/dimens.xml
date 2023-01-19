@@ -3,4 +3,6 @@
 
     <dimen name="squareSize">100dp</dimen>
     <dimen name="defaultTextSize">16sp</dimen>
+    <dimen name="padding_20">20dp</dimen>
+    <dimen name="text_size_48sp">48sp</dimen>
 </resources>
