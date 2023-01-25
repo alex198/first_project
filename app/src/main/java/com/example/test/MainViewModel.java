@@ -18,15 +18,14 @@ import io.reactivex.rxjava3.schedulers.Schedulers;
 
 public class MainViewModel extends AndroidViewModel {
 
-    private MutableLiveData<CardInfo> cards = new MutableLiveData<>();
+    private MutableLiveData<String> cards = new MutableLiveData<>();
     private final CompositeDisposable compositeDisposable = new CompositeDisposable();
 
-    public MainViewModel(@NonNull Application application, MutableLiveData<CardInfo> cards) {
+    public MainViewModel(@NonNull Application application) {
         super(application);
-        this.cards = cards;
     }
 
-    public LiveData<CardInfo> getCards() {
+    public LiveData<String> getCards() {
         return cards;
     }
 
@@ -34,17 +33,10 @@ public class MainViewModel extends AndroidViewModel {
         Disposable disposable = ApiFactory.apiService.loadCardInfo()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Consumer<CardInfo>() {
-                    @Override
-                    public void accept(CardInfo cardInfo) throws Throwable {
-                        cards.setValue(cardInfo);
-                    }
-                }, new Consumer<Throwable>() {
-                    @Override
-                    public void accept(Throwable throwable) throws Throwable {
-                        Log.d("MainActivity", throwable.toString());
-                    }
-                });
+                .subscribe(
+                        cardInfo -> cards.setValue(cardInfo.toString()),
+                        throwable -> Log.d("MainActivity", throwable.toString())
+                );
         compositeDisposable.add(disposable);
     }
 
