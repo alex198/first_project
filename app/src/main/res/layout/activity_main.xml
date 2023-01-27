@@ -11,28 +11,28 @@
         android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/bg_color"
         android:padding="@dimen/padding_10"
         android:text="@string/text_title"
-        android:textSize="@dimen/title_text_size"
-        android:textColor="@android:color/primary_text_dark"
-        android:background="@color/bg_color"
-        android:textStyle="bold"
         android:textAlignment="center"
+        android:textColor="@android:color/primary_text_dark"
+        android:textSize="@dimen/title_text_size"
+        android:textStyle="bold"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/inputBIN"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/padding_10"
-        android:layout_marginTop="@dimen/margin_30"
         android:layout_marginHorizontal="@dimen/margin_30"
+        android:layout_marginTop="@dimen/margin_30"
+        android:autofillHints="creditCardNumber"
         android:backgroundTint="@color/black"
         android:hint="@string/bin_hint"
+        android:inputType="number"
+        android:padding="@dimen/padding_10"
         android:textColorHint="@android:color/darker_gray"
-        app:layout_constraintTop_toBottomOf="@+id/title"
-        android:autofillHints="creditCardNumber"
-        android:inputType="number" />
+        app:layout_constraintTop_toBottomOf="@+id/title" />
 
     <Button
         android:id="@+id/btnGetInfo"
@@ -40,12 +40,23 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/marg_70"
         android:layout_marginTop="@dimen/margin_30"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="@dimen/margin_20"
         android:background="@color/bg_color"
         android:text="@string/btn_get_info"
         android:textColor="@android:color/primary_text_dark"
         android:textSize="@dimen/size_16"
         app:layout_constraintTop_toBottomOf="@+id/inputBIN" />
+
+    <TextView
+        android:id="@+id/textViewHistory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="@dimen/history_marg_10"
+        android:padding="@dimen/padding_10"
+        android:text="@string/query_history_text"
+        android:textColor="@color/design_default_color_primary_dark"
+        android:textSize="@dimen/size_16" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -65,106 +76,106 @@
                     android:id="@+id/cardInfo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="@dimen/padding_10"
-                    android:textSize="@dimen/size_16"
                     android:layout_gravity="right"
-                    android:text="Платежная система:" />
+                    android:padding="@dimen/padding_10"
+                    android:text="@string/text_network"
+                    android:textSize="@dimen/size_16" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="@dimen/padding_10"
-                    android:textSize="@dimen/size_16"
                     android:layout_gravity="right"
-                    android:text="Изготовитель:" />
+                    android:padding="@dimen/padding_10"
+                    android:text="@string/text_brand"
+                    android:textSize="@dimen/size_16" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="@dimen/padding_10"
-                    android:textSize="@dimen/size_16"
                     android:layout_gravity="right"
-                    android:text="Тип карты:" />
+                    android:padding="@dimen/padding_10"
+                    android:text="@string/text_type"
+                    android:textSize="@dimen/size_16" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="@dimen/padding_10"
-                    android:textSize="@dimen/size_16"
                     android:layout_gravity="right"
-                    android:text="Предоплата" />
+                    android:padding="@dimen/padding_10"
+                    android:text="@string/text_prepaid"
+                    android:textSize="@dimen/size_16" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="@dimen/padding_10"
-                    android:textSize="@dimen/size_16"
                     android:layout_gravity="right"
-                    android:text="Номер карты:" />
+                    android:padding="@dimen/padding_10"
+                    android:text="@string/text_card_num"
+                    android:textSize="@dimen/size_16" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="@dimen/padding_10"
-                    android:textSize="12sp"
                     android:layout_gravity="right"
-                    android:text="количество цифр:" />
+                    android:padding="@dimen/padding_10"
+                    android:text="@string/text_card_amount"
+                    android:textSize="@dimen/text_size_inside" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="@dimen/padding_10"
-                    android:textSize="12sp"
                     android:layout_gravity="right"
-                    android:text="контрольное число:" />
+                    android:padding="@dimen/padding_10"
+                    android:text="@string/luhn"
+                    android:textSize="@dimen/text_size_inside" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="@dimen/padding_10"
-                    android:textSize="@dimen/size_16"
                     android:layout_gravity="right"
-                    android:text="Страна:" />
+                    android:padding="@dimen/padding_10"
+                    android:text="@string/country"
+                    android:textSize="@dimen/size_16" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="@dimen/padding_10"
-                    android:textSize="12sp"
                     android:layout_gravity="right"
-                    android:text="широта:" />
+                    android:padding="@dimen/padding_10"
+                    android:text="@string/latitude"
+                    android:textSize="@dimen/text_size_inside" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="@dimen/padding_10"
-                    android:textSize="12sp"
                     android:layout_gravity="right"
-                    android:text="долгота:" />
+                    android:padding="@dimen/padding_10"
+                    android:text="@string/longitude"
+                    android:textSize="@dimen/text_size_inside" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="@dimen/padding_10"
-                    android:textSize="@dimen/size_16"
                     android:layout_gravity="right"
-                    android:text="Наименование банка:" />
+                    android:padding="@dimen/padding_10"
+                    android:text="@string/bank_name"
+                    android:textSize="@dimen/size_16" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="@dimen/padding_10"
-                    android:textSize="@dimen/size_16"
                     android:layout_gravity="right"
-                    android:text="сайт банка:" />
+                    android:padding="@dimen/padding_10"
+                    android:text="@string/website"
+                    android:textSize="@dimen/size_16" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="@dimen/padding_10"
-                    android:textSize="@dimen/size_16"
                     android:layout_gravity="right"
-                    android:text="телефон:" />
+                    android:padding="@dimen/padding_10"
+                    android:text="@string/phone"
+                    android:textSize="@dimen/size_16" />
 
             </LinearLayout>
 
@@ -174,78 +185,102 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/textViewNetwork"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="@dimen/padding_10"
                     android:textSize="@dimen/size_16"
                     tools:text="Visa" />
+
                 <TextView
+                    android:id="@+id/textViewBrand"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="@dimen/padding_10"
                     android:textSize="@dimen/size_16"
                     tools:text="Visa/Dankort" />
+
                 <TextView
+                    android:id="@+id/textViewType"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="@dimen/padding_10"
                     android:textSize="@dimen/size_16"
                     tools:text="Debit" />
+
                 <TextView
+                    android:id="@+id/textViewPrepaid"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="@dimen/padding_10"
                     android:textSize="@dimen/size_16"
                     tools:text="Нет" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="@dimen/padding_10"
                     android:textSize="@dimen/size_16"
                     tools:text=" " />
+
                 <TextView
+                    android:id="@+id/textViewCardLength"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="@dimen/padding_10"
-                    android:textSize="12sp"
+                    android:textSize="@dimen/text_size_inside"
                     tools:text="16" />
+
                 <TextView
+                    android:id="@+id/textViewLuhn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="@dimen/padding_10"
-                    android:textSize="12sp"
+                    android:textSize="@dimen/text_size_inside"
                     tools:text="347" />
+
                 <TextView
+                    android:id="@+id/textViewCountry"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="@dimen/padding_10"
                     android:textSize="@dimen/size_16"
                     tools:text="Russia" />
+
                 <TextView
+                    android:id="@+id/textViewLatitude"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="@dimen/padding_10"
-                    android:textSize="12sp"
+                    android:textSize="@dimen/text_size_inside"
                     tools:text="20" />
+
                 <TextView
+                    android:id="@+id/textViewLongitude"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="@dimen/padding_10"
-                    android:textSize="12sp"
+                    android:textSize="@dimen/text_size_inside"
                     tools:text="20" />
+
                 <TextView
+                    android:id="@+id/textViewBankName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="@dimen/padding_10"
                     android:textSize="@dimen/size_16"
                     tools:text="OOO Sber" />
+
                 <TextView
+                    android:id="@+id/textViewWebsite"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="@dimen/padding_10"
                     android:textSize="@dimen/size_16"
                     tools:text="www.sber.ru" />
+
                 <TextView
+                    android:id="@+id/textViewPhoneNumber"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="@dimen/padding_10"
