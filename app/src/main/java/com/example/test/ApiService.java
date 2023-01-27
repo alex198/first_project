@@ -6,6 +6,6 @@ import retrofit2.http.Query;
 
 public interface ApiService {
 
-    @GET("")
+    @GET("45717360")
     Single<CardInfo> loadCardInfo();
 }
