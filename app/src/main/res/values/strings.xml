@@ -3,5 +3,19 @@
     <string name="text_title">Информация о вашей карте</string>
     <string name="bin_hint">Введите корректный BIN карты</string>
     <string name="btn_get_info">Получить данные</string>
+    <string name="query_history_text">История запросов</string>
+    <string name="text_network">Платежная система:</string>
+    <string name="text_brand">Изготовитель:</string>
+    <string name="text_type">Тип карты:</string>
+    <string name="text_prepaid">Предоплата</string>
+    <string name="text_card_num">Номер карты:</string>
+    <string name="text_card_amount">количество цифр:</string>
+    <string name="luhn">контрольное число:</string>
+    <string name="country">Страна:</string>
+    <string name="latitude">широта:</string>
+    <string name="longitude">долгота:</string>
+    <string name="bank_name">Наименование банка:</string>
+    <string name="website">сайт банка:</string>
+    <string name="phone">телефон:</string>
 
 </resources>
