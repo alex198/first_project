@@ -30,7 +30,9 @@
         android:backgroundTint="@color/black"
         android:hint="@string/bin_hint"
         android:textColorHint="@android:color/darker_gray"
-        app:layout_constraintTop_toBottomOf="@+id/title"/>
+        app:layout_constraintTop_toBottomOf="@+id/title"
+        android:autofillHints="creditCardNumber"
+        android:inputType="number" />
 
     <Button
         android:id="@+id/btnGetInfo"
@@ -38,22 +40,221 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/marg_70"
         android:layout_marginTop="@dimen/margin_30"
-        app:layout_constraintTop_toBottomOf="@+id/inputBIN"
-        android:text="@string/btn_get_info"
-        android:textSize="@dimen/size_16"
-        android:textColor="@android:color/primary_text_dark"
+        android:layout_marginBottom="20dp"
         android:background="@color/bg_color"
-        />
-
-    <TextView
-        android:id="@+id/cardInfo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="@dimen/padding_10"
-        android:layout_marginTop="@dimen/margin_30"
+        android:text="@string/btn_get_info"
+        android:textColor="@android:color/primary_text_dark"
         android:textSize="@dimen/size_16"
-        app:layout_constraintTop_toBottomOf="@+id/btnGetInfo"
-        tools:text="Text"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/inputBIN" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/cardInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/padding_10"
+                    android:textSize="@dimen/size_16"
+                    android:layout_gravity="right"
+                    android:text="Платежная система:" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/padding_10"
+                    android:textSize="@dimen/size_16"
+                    android:layout_gravity="right"
+                    android:text="Изготовитель:" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/padding_10"
+                    android:textSize="@dimen/size_16"
+                    android:layout_gravity="right"
+                    android:text="Тип карты:" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/padding_10"
+                    android:textSize="@dimen/size_16"
+                    android:layout_gravity="right"
+                    android:text="Предоплата" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/padding_10"
+                    android:textSize="@dimen/size_16"
+                    android:layout_gravity="right"
+                    android:text="Номер карты:" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/padding_10"
+                    android:textSize="12sp"
+                    android:layout_gravity="right"
+                    android:text="количество цифр:" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/padding_10"
+                    android:textSize="12sp"
+                    android:layout_gravity="right"
+                    android:text="контрольное число:" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/padding_10"
+                    android:textSize="@dimen/size_16"
+                    android:layout_gravity="right"
+                    android:text="Страна:" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/padding_10"
+                    android:textSize="12sp"
+                    android:layout_gravity="right"
+                    android:text="широта:" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/padding_10"
+                    android:textSize="12sp"
+                    android:layout_gravity="right"
+                    android:text="долгота:" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/padding_10"
+                    android:textSize="@dimen/size_16"
+                    android:layout_gravity="right"
+                    android:text="Наименование банка:" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/padding_10"
+                    android:textSize="@dimen/size_16"
+                    android:layout_gravity="right"
+                    android:text="сайт банка:" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/padding_10"
+                    android:textSize="@dimen/size_16"
+                    android:layout_gravity="right"
+                    android:text="телефон:" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/padding_10"
+                    android:textSize="@dimen/size_16"
+                    tools:text="Visa" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/padding_10"
+                    android:textSize="@dimen/size_16"
+                    tools:text="Visa/Dankort" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/padding_10"
+                    android:textSize="@dimen/size_16"
+                    tools:text="Debit" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/padding_10"
+                    android:textSize="@dimen/size_16"
+                    tools:text="Нет" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/padding_10"
+                    android:textSize="@dimen/size_16"
+                    tools:text=" " />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/padding_10"
+                    android:textSize="12sp"
+                    tools:text="16" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/padding_10"
+                    android:textSize="12sp"
+                    tools:text="347" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/padding_10"
+                    android:textSize="@dimen/size_16"
+                    tools:text="Russia" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/padding_10"
+                    android:textSize="12sp"
+                    tools:text="20" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/padding_10"
+                    android:textSize="12sp"
+                    tools:text="20" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/padding_10"
+                    android:textSize="@dimen/size_16"
+                    tools:text="OOO Sber" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/padding_10"
+                    android:textSize="@dimen/size_16"
+                    tools:text="www.sber.ru" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/padding_10"
+                    android:textSize="@dimen/size_16"
+                    tools:text="888888" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.appcompat.widget.LinearLayoutCompat>

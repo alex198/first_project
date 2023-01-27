@@ -18,7 +18,9 @@ import io.reactivex.rxjava3.schedulers.Schedulers;
 
 public class MainViewModel extends AndroidViewModel {
 
-    private MutableLiveData<String> cards = new MutableLiveData<>();
+    private static final String TAG = "MainViewModel";
+
+    private final MutableLiveData<String> cards = new MutableLiveData<>();
     private final CompositeDisposable compositeDisposable = new CompositeDisposable();
 
     public MainViewModel(@NonNull Application application) {
@@ -35,7 +37,7 @@ public class MainViewModel extends AndroidViewModel {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
                         cardInfo -> cards.setValue(cardInfo.toString()),
-                        throwable -> Log.d("MainActivity", throwable.toString())
+                        throwable -> Log.d(TAG, throwable.toString())
                 );
         compositeDisposable.add(disposable);
     }
