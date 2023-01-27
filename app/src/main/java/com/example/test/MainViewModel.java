@@ -31,8 +31,11 @@ public class MainViewModel extends AndroidViewModel {
         return cards;
     }
 
+    //реализовать
+    int inputBin = 45717360;
+
     public void loadCardInfo() {
-        Disposable disposable = ApiFactory.apiService.loadCardInfo()
+        Disposable disposable = ApiFactory.apiService.loadCardInfo(inputBin)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
