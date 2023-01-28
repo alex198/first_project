@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">Test</string>
+    <string name="app_name">Card info</string>
+    <string name="text_title">Информация о вашей карте</string>
+    <string name="bin_hint">Введите корректный BIN карты</string>
+    <string name="btn_get_info">Получить данные</string>
+
 </resources>
