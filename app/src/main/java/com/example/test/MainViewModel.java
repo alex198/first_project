@@ -18,6 +18,9 @@ import io.reactivex.rxjava3.schedulers.Schedulers;
 
 public class MainViewModel extends AndroidViewModel {
 
+    //для проверки
+    private static final int bin = 45717360;
+
     private static final String TAG = "MainViewModel";
 
     private final MutableLiveData<String> cards = new MutableLiveData<>();
@@ -31,11 +34,8 @@ public class MainViewModel extends AndroidViewModel {
         return cards;
     }
 
-    //реализовать
-    int inputBin = 45717360;
-
     public void loadCardInfo() {
-        Disposable disposable = ApiFactory.apiService.loadCardInfo(inputBin)
+        Disposable disposable = ApiFactory.apiService.loadCardInfo(bin)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
