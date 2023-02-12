@@ -21,7 +21,15 @@ public class CardInfo implements Serializable {
     @SerializedName("bank")
     private Bank bank;
 
-    public CardInfo(String scheme, String type, String brand, boolean prepaid, Country country, CardNumber number, Bank bank) {
+    public CardInfo(
+            String scheme,
+            String type,
+            String brand,
+            boolean prepaid,
+            Country country,
+            CardNumber number,
+            Bank bank
+    ) {
         this.scheme = scheme;
         this.type = type;
         this.brand = brand;
