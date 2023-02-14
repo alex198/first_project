@@ -19,41 +19,41 @@ import io.reactivex.rxjava3.schedulers.Schedulers;
 
 public class MainViewModel extends AndroidViewModel {
 
-    private static final String TAG = "MainViewModel";
+				private static final String TAG = "MainViewModel";
 
-    private final MutableLiveData<Map<String, String>> cards = new MutableLiveData<>();
-    private final CompositeDisposable compositeDisposable = new CompositeDisposable();
+				private final MutableLiveData<Map<String, String>> cards = new MutableLiveData<>();
+				private final CompositeDisposable compositeDisposable = new CompositeDisposable();
 
-    public MainViewModel(@NonNull Application application) {
-        super(application);
-    }
+				public MainViewModel(@NonNull Application application) {
+								super(application);
+				}
 
-    public LiveData<Map<String, String>> getCards() {
-        return cards;
-    }
+				public LiveData<Map<String, String>> getCards() {
+								return cards;
+				}
 
-    public void loadCardInfo(String bin) {
-        Disposable disposable = ApiFactory.apiService.loadCardInfo(bin)
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe(new Consumer<CardInfo>() {
-                           @Override
-                           public void accept(CardInfo cardInfo) throws Throwable {
-                               cards.setValue(new MapConverter().convertToMap(cardInfo));
-                           }
-                       }, new Consumer<Throwable>() {
-                           @Override
-                           public void accept(Throwable throwable) throws Throwable {
-                               Log.d(TAG, throwable.toString());
-                           }
-                       }
-            );
-        compositeDisposable.add(disposable);
-    }
+				public void loadCardInfo(String bin) {
+								Disposable disposable = ApiFactory.apiService.loadCardInfo(bin)
+												.subscribeOn(Schedulers.io())
+												.observeOn(AndroidSchedulers.mainThread())
+												.subscribe(new Consumer<CardInfo>() {
+																           @Override
+																           public void accept(CardInfo cardInfo) throws Throwable {
+																				           cards.setValue(new MapConverter().convertToMap(cardInfo));
+																           }
+												           }, new Consumer<Throwable>() {
+																           @Override
+																           public void accept(Throwable throwable) throws Throwable {
+																				           Log.d(TAG, throwable.toString());
+																           }
+												           }
+												);
+								compositeDisposable.add(disposable);
+				}
 
-    @Override
-    protected void onCleared() {
-        super.onCleared();
-        compositeDisposable.dispose();
-    }
+				@Override
+				protected void onCleared() {
+								super.onCleared();
+								compositeDisposable.dispose();
+				}
 }

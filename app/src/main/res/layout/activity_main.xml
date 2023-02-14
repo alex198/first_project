@@ -58,5 +58,4 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:listitem="@layout/recyclerview_item" />
 
-
 </LinearLayout>

@@ -18,7 +18,7 @@ import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
-				//bin для тестов Visa 4000 0012 MasterCard 5110 0001
+				//bin для тестов Visa 4000 0012, MasterCard 5110 0001, Из задания 4571 7360
 				private MainViewModel viewModel;
 				private static final String TAG = "MainActivity";
 				private final String CHECK_BIN_TEXT = "BIN карты должен содержать от 6 до 8 цифр";
@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
 								viewModel = new ViewModelProvider(this).get(MainViewModel.class);
 								viewModel.getCards().observe(
 												this,
-												(Map<String, String> cards) -> recyclerAdapter.convertToList(cards)
+												(cards) -> recyclerAdapter.convertToList(cards)
 								);
 				}
 
@@ -64,7 +64,6 @@ public class MainActivity extends AppCompatActivity {
 								buttonGetInfo = findViewById(R.id.buttonGetInfo);
 								recyclerViewCardInfo = findViewById(R.id.recyclerViewCardInfo);
 				}
-
 
 }
 

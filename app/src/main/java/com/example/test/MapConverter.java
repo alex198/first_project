@@ -1,25 +1,25 @@
 package com.example.test;
 
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.TreeMap;
 
 public class MapConverter {
 
-    private Map<String, String> convertedMap = new HashMap<>();
+    private Map<String, String> convertedMap = new LinkedHashMap<>();
 
     public Map<String, String> convertToMap(CardInfo cardInfo) {
-        convertedMap.put("scheme", cardInfo.getScheme());
-        convertedMap.put("type", cardInfo.getType());
-        convertedMap.put("brand", cardInfo.getBrand());
-        convertedMap.put("prepaid", String.valueOf(cardInfo.isPrepaid()));
-        convertedMap.put("country", getCountryFullName(cardInfo));
-        convertedMap.put("latitude", String.valueOf(cardInfo.getCountryInfo().getLatitude()));
-        convertedMap.put("longitude", String.valueOf(cardInfo.getCountryInfo().getLongitude()));
-        convertedMap.put("length", String.valueOf(cardInfo.getCardNumberInfo().getLength()));
-        convertedMap.put("luhn", String.valueOf(cardInfo.getCardNumberInfo().isLuhn()));
-        convertedMap.put("bankName", cardInfo.getBankInfo().getBankName());
-        convertedMap.put("url", cardInfo.getBankInfo().getUrl());
-        convertedMap.put("phone", cardInfo.getBankInfo().getPhone());
+        convertedMap.put("Scheme", cardInfo.getScheme());
+        convertedMap.put("Type", cardInfo.getType());
+        convertedMap.put("Brand", cardInfo.getBrand());
+        convertedMap.put("Prepaid", setBooleanToString(String.valueOf(cardInfo.isPrepaid())));
+        convertedMap.put("Country", getCountryFullName(cardInfo));
+        convertedMap.put("Latitude/Longtitude", cardInfo.getCountryInfo().getLatitude() + " / " + cardInfo.getCountryInfo().getLongitude());
+        convertedMap.put("Length", String.valueOf(cardInfo.getCardNumberInfo().getLength()));
+        convertedMap.put("Luhn", setBooleanToString(String.valueOf(cardInfo.getCardNumberInfo().isLuhn())));
+        convertedMap.put("Bankname", cardInfo.getBankInfo().getBankName());
+        convertedMap.put("URL", cardInfo.getBankInfo().getUrl());
+        convertedMap.put("Phone", cardInfo.getBankInfo().getPhone());
 
         return convertedMap;
     }
@@ -34,6 +34,15 @@ public class MapConverter {
             countryFullName = countryName;
         }
         return countryFullName;
+    }
+
+    private String setBooleanToString(String s) {
+        String result;
+        if(s.equals("true")) {
+            result = "Yes";
+        } else
+            result = "No";
+        return result;
     }
 
 }

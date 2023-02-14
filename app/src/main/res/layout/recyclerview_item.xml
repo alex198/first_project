@@ -4,21 +4,27 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:layout_marginTop="5dp">
+    android:layout_marginTop="@dimen/margin_10"
+    android:layout_marginBottom="10dp">
 
     <TextView
         android:id="@+id/textViewStaticName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:padding="5dp"
-        tools:text="Платежная система: " />
+        android:textSize="@dimen/text_size_16"
+        android:fontFamily="@font/adamina"
+        android:paddingStart="@dimen/margin_30"
+        tools:text="SCHEME" />
 
     <TextView
         android:id="@+id/textViewDataExport"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:padding="5dp"
+        android:fontFamily="@font/adamina"
+        android:paddingStart="@dimen/margin_30"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_size_22"
+        android:textStyle="bold"
         tools:text="Visa" />
+
 </LinearLayout>
