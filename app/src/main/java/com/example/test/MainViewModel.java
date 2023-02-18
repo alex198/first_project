@@ -56,4 +56,5 @@ public class MainViewModel extends AndroidViewModel {
 								super.onCleared();
 								compositeDisposable.dispose();
 				}
+
 }

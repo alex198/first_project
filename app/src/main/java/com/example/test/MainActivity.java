@@ -20,7 +20,6 @@ public class MainActivity extends AppCompatActivity {
 
 				//bin для тестов Visa 4000 0012, MasterCard 5110 0001, Из задания 4571 7360
 				private MainViewModel viewModel;
-				private static final String TAG = "MainActivity";
 				private final String CHECK_BIN_TEXT = "BIN карты должен содержать от 6 до 8 цифр";
 
 				private EditText editTextBIN;
@@ -48,18 +47,16 @@ public class MainActivity extends AppCompatActivity {
 																}
 												}
 								});
-
 								recyclerAdapter = new RecyclerAdapter();
 								recyclerViewCardInfo.setAdapter(recyclerAdapter);
 								viewModel = new ViewModelProvider(this).get(MainViewModel.class);
 								viewModel.getCards().observe(
 												this,
-												(cards) -> recyclerAdapter.convertToList(cards)
+												(cards) -> recyclerAdapter.setList(cards)
 								);
 				}
 
 				public void initViews() {
-
 								editTextBIN = findViewById(R.id.editTextBIN);
 								buttonGetInfo = findViewById(R.id.buttonGetInfo);
 								recyclerViewCardInfo = findViewById(R.id.recyclerViewCardInfo);

@@ -16,7 +16,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.CardVi
 
 				private List<Map.Entry<String, String>> cards = new ArrayList<>();
 
-				public void convertToList(@NonNull Map<String, String> map) {
+				public void setList(@NonNull Map<String, String> map) {
 								this.cards = new ArrayList<>(map.entrySet());
 								notifyDataSetChanged();
 				}
@@ -55,4 +55,5 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.CardVi
 												textViewDataExport = itemView.findViewById(R.id.textViewDataExport);
 								}
 				}
+
 }
