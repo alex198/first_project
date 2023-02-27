@@ -2,27 +2,23 @@ package com.example.test;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
-import java.util.TreeMap;
 
 public class MapConverter {
 
-				private Map<String, String> convertedMap = new LinkedHashMap<>();
+				private final Map<String, String> convertedMap = new LinkedHashMap<>();
 
 				public Map<String, String> convertToMap(CardInfo cardInfo) {
 								convertedMap.put("Scheme", cardInfo.getScheme());
 								convertedMap.put("Type", cardInfo.getType());
 								convertedMap.put("Brand", cardInfo.getBrand());
-								convertedMap.put("Prepaid", setBooleanToString(String.valueOf(cardInfo.isPrepaid())));
+								convertedMap.put("Prepaid", setBooleanToString(cardInfo.isPrepaid()));
 								convertedMap.put("Country", getCountryFullName(cardInfo));
 								convertedMap.put(
 												"Latitude/Longitude",
 												cardInfo.getCountryInfo().getLatitude() + " " + cardInfo.getCountryInfo().getLongitude()
 								);
 								convertedMap.put("Length", String.valueOf(cardInfo.getCardNumberInfo().getLength()));
-								convertedMap.put(
-												"Luhn",
-												setBooleanToString(String.valueOf(cardInfo.getCardNumberInfo().isLuhn()))
-								);
+								convertedMap.put("Luhn", setBooleanToString(cardInfo.getCardNumberInfo().isLuhn()));
 								convertedMap.put("Bankname", cardInfo.getBankInfo().getBankName());
 								convertedMap.put("URL", cardInfo.getBankInfo().getUrl());
 								convertedMap.put("Phone", cardInfo.getBankInfo().getPhone());
@@ -42,11 +38,11 @@ public class MapConverter {
 								return countryFullName;
 				}
 
-				private String setBooleanToString(String s) {
+				private String setBooleanToString(boolean s) {
 								String result = "";
-								if (s.equals("true")) {
+								if (s) {
 												result = "Yes";
-								} else if (s.equals("false")) {
+								} else if (!s) {
 												result = "No";
 								}
 								return result;
