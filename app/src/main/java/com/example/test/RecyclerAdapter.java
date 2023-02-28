@@ -14,46 +14,46 @@ import java.util.Map;
 
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.CardViewHolder> {
 
-				private List<Map.Entry<String, String>> cards = new ArrayList<>();
+    private List<Map.Entry<String, String>> cards = new ArrayList<>();
 
-				public void setList(@NonNull Map<String, String> map) {
-								this.cards = new ArrayList<>(map.entrySet());
-								notifyDataSetChanged();
-				}
+    public void setList(@NonNull Map<String, String> map) {
+        this.cards = new ArrayList<>(map.entrySet());
+        notifyDataSetChanged();
+    }
 
-				@NonNull
-				@Override
-				public CardViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-								View view = LayoutInflater.from(parent.getContext()).inflate(
-												R.layout.recyclerview_item,
-												parent,
-												false
-								);
-								return new CardViewHolder(view);
-				}
+    @NonNull
+    @Override
+    public CardViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(
+            R.layout.recyclerview_item,
+            parent,
+            false
+        );
+        return new CardViewHolder(view);
+    }
 
-				@Override
-				public void onBindViewHolder(@NonNull CardViewHolder holder, int position) {
-								Map.Entry<String, String> item = cards.get(position);
-								holder.textViewStaticName.setText(item.getKey());
-								holder.textViewDataExport.setText(item.getValue());
-				}
+    @Override
+    public void onBindViewHolder(@NonNull CardViewHolder holder, int position) {
+        Map.Entry<String, String> item = cards.get(position);
+        holder.textViewStaticName.setText(item.getKey());
+        holder.textViewDataExport.setText(item.getValue());
+    }
 
-				@Override
-				public int getItemCount() {
-								return cards.size();
-				}
+    @Override
+    public int getItemCount() {
+        return cards.size();
+    }
 
-				static class CardViewHolder extends RecyclerView.ViewHolder {
+    static class CardViewHolder extends RecyclerView.ViewHolder {
 
-								private final TextView textViewStaticName;
-								private final TextView textViewDataExport;
+        private final TextView textViewStaticName;
+        private final TextView textViewDataExport;
 
-								public CardViewHolder(@NonNull View itemView) {
-												super(itemView);
-												textViewStaticName = itemView.findViewById(R.id.textViewStaticName);
-												textViewDataExport = itemView.findViewById(R.id.textViewDataExport);
-								}
-				}
+        public CardViewHolder(@NonNull View itemView) {
+            super(itemView);
+            textViewStaticName = itemView.findViewById(R.id.textViewStaticName);
+            textViewDataExport = itemView.findViewById(R.id.textViewDataExport);
+        }
+    }
 
 }
