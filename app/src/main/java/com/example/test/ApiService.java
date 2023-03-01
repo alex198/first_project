@@ -8,5 +8,5 @@ import retrofit2.http.Query;
 public interface ApiService {
 
     @GET("{bin}")
-    Single<CardInfo> loadCardInfo(@Path("bin") int inputBin);
+    Single<CardInfo> loadCardInfo(@Path("bin") String inputBin);
 }

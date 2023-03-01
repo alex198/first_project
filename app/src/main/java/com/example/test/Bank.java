@@ -32,9 +32,10 @@ public class Bank {
     @Override
     public String toString() {
         return "Bank{" +
-                "bankName='" + bankName + '\'' +
-                ", url='" + url + '\'' +
-                ", phone='" + phone + '\'' +
-                '}';
+            "bankName='" + bankName + '\'' +
+            ", url='" + url + '\'' +
+            ", phone='" + phone + '\'' +
+            '}';
     }
+
 }

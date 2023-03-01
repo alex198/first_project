@@ -25,8 +25,9 @@ public class CardNumber {
     @Override
     public String toString() {
         return "CardNumber{" +
-                "length=" + length +
-                ", luhn=" + luhn +
-                '}';
+            "length=" + length +
+            ", luhn=" + luhn +
+            '}';
     }
+
 }

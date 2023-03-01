@@ -21,7 +21,15 @@ public class CardInfo implements Serializable {
     @SerializedName("bank")
     private Bank bank;
 
-    public CardInfo(String scheme, String type, String brand, boolean prepaid, Country country, CardNumber number, Bank bank) {
+    public CardInfo(
+        String scheme,
+        String type,
+        String brand,
+        boolean prepaid,
+        Country country,
+        CardNumber number,
+        Bank bank
+    ) {
         this.scheme = scheme;
         this.type = type;
         this.brand = brand;
@@ -62,13 +70,14 @@ public class CardInfo implements Serializable {
     @Override
     public String toString() {
         return "CardInfo{" +
-                "scheme='" + scheme + '\'' +
-                ", type='" + type + '\'' +
-                ", brand='" + brand + '\'' +
-                ", prepaid=" + prepaid +
-                ", countryInfo=" + country +
-                ", cardNumberInfo=" + number +
-                ", bankInfo=" + bank +
-                '}';
+            "scheme='" + scheme + '\'' +
+            ", type='" + type + '\'' +
+            ", brand='" + brand + '\'' +
+            ", prepaid=" + prepaid +
+            ", countryInfo=" + country +
+            ", cardNumberInfo=" + number +
+            ", bankInfo=" + bank +
+            '}';
     }
+
 }
