@@ -3,5 +3,6 @@
     <string name="text_title">Информация о банковской карте</string>
     <string name="bin_hint">Введите корректный BIN карты</string>
     <string name="btn_get_info">Получить данные</string>
+    <string name="item_query_history">История запросов</string>
 
 </resources>

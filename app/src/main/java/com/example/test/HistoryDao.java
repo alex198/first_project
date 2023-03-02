@@ -17,6 +17,7 @@ public interface HistoryDao {
 				@Insert(onConflict = OnConflictStrategy.REPLACE)
 				void add(HistoryCard cardHistory);
 
+				//прояснить нужно ли удалять запросы из истории
 				@Query("DELETE FROM history WHERE bin = :bin")
 				void remove(String bin);
 }
