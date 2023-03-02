@@ -7,26 +7,6 @@ public class MapConverter {
 
     private final Map<String, String> convertedMap = new LinkedHashMap<>();
 
-<<<<<<< Updated upstream
-    public Map<String, String> convertToMap(CardInfo cardInfo) {
-        convertedMap.put("Scheme", cardInfo.getScheme());
-        convertedMap.put("Type", cardInfo.getType());
-        convertedMap.put("Brand", cardInfo.getBrand());
-        convertedMap.put("Prepaid", setBooleanToString(cardInfo.isPrepaid()));
-        convertedMap.put("Country", getCountryFullName(cardInfo));
-        convertedMap.put(
-            "Latitude/Longitude",
-            cardInfo.getCountryInfo().getLatitude() + " " + cardInfo.getCountryInfo().getLongitude()
-        );
-        convertedMap.put("Length", String.valueOf(cardInfo.getCardNumberInfo().getLength()));
-        convertedMap.put("Luhn", setBooleanToString(cardInfo.getCardNumberInfo().isLuhn()));
-        convertedMap.put("Bankname", cardInfo.getBankInfo().getBankName());
-        convertedMap.put("URL", cardInfo.getBankInfo().getUrl());
-        convertedMap.put("Phone", cardInfo.getBankInfo().getPhone());
-
-        return new Utils().filterValue(convertedMap);
-    }
-=======
 				public Map<String, String> convertToMap(CardInfo cardInfo) {
 								convertedMap.put("Scheme", cardInfo.getScheme());
 								convertedMap.put("Type", cardInfo.getType());
@@ -45,7 +25,6 @@ public class MapConverter {
 
 								return new filterCardData().filterValue(convertedMap);
 				}
->>>>>>> Stashed changes
 
     private String getCountryFullName(CardInfo cardInfo) {
         String countryFullName = "";
@@ -59,17 +38,6 @@ public class MapConverter {
         return countryFullName;
     }
 
-<<<<<<< Updated upstream
-    private String setBooleanToString(boolean s) {
-        String result = "";
-        if (s) {
-            result = "Yes";
-        } else if (!s) {
-            result = "No";
-        }
-        return result;
-    }
-=======
 				private String setBooleanToString(boolean s) {
 								String result = "";
 								if (s) {
@@ -79,6 +47,5 @@ public class MapConverter {
 								}
 								return result;
 				}
->>>>>>> Stashed changes
 
 }

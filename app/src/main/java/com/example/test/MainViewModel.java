@@ -1,6 +1,5 @@
 package com.example.test;
 
-import android.annotation.SuppressLint;
 import android.app.Application;
 import android.util.Log;
 
@@ -22,15 +21,9 @@ import io.reactivex.rxjava3.schedulers.Schedulers;
 public class MainViewModel extends AndroidViewModel {
 
     private static final String TAG = "MainViewModel";
-
-<<<<<<< Updated upstream
     private final MutableLiveData<Map<String, String>> cards = new MutableLiveData<>();
     private final CompositeDisposable compositeDisposable = new CompositeDisposable();
-=======
-				private final MutableLiveData<Map<String, String>> cards = new MutableLiveData<>();
-				private final CompositeDisposable compositeDisposable = new CompositeDisposable();
-				private final HistoryDao historyDao = CardDatabase.getInstance(getApplication()).historyDao();
->>>>>>> Stashed changes
+    private final HistoryDao historyDao = CardDatabase.getInstance(getApplication()).historyDao();
 
     public MainViewModel(@NonNull Application application) {
         super(application);
@@ -40,10 +33,22 @@ public class MainViewModel extends AndroidViewModel {
         return cards;
     }
 
-<<<<<<< Updated upstream
     public void loadCardInfo(String bin) {
         Disposable disposable = ApiFactory.apiService.loadCardInfo(bin)
             .subscribeOn(Schedulers.io())
+            .doOnSuccess(new Consumer<CardInfo>() {
+                @Override
+                public void accept(CardInfo cardInfo) throws Throwable {
+                    Date date = new Date();
+                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
+                    HistoryCard historyCard = new ConverterToHistoryCard().convertToHistoryCard(
+                        bin,
+                        cardInfo,
+                        sdf.format(date)
+                    );
+                    historyDao.add(historyCard);
+                }
+            })
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(new Consumer<CardInfo>() {
                            @Override
@@ -59,39 +64,6 @@ public class MainViewModel extends AndroidViewModel {
             );
         compositeDisposable.add(disposable);
     }
-=======
-				public void loadCardInfo(String bin) {
-								Disposable disposable = ApiFactory.apiService.loadCardInfo(bin)
-												.subscribeOn(Schedulers.io())
-												.doOnSuccess(new Consumer<CardInfo>() {
-																@Override
-																public void accept(CardInfo cardInfo) throws Throwable {
-																				Date date = new Date();
-																				SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
-																				HistoryCard historyCard = new ConverterToHistoryCard().convertToHistoryCard(
-																								bin,
-																								cardInfo,
-																								sdf.format(date)
-																				);
-																				historyDao.add(historyCard);
-																}
-												})
-												.observeOn(AndroidSchedulers.mainThread())
-												.subscribe(new Consumer<CardInfo>() {
-																           @Override
-																           public void accept(CardInfo cardInfo) throws Throwable {
-																				           cards.setValue(new MapConverter().convertToMap(cardInfo));
-																           }
-												           }, new Consumer<Throwable>() {
-																           @Override
-																           public void accept(Throwable throwable) throws Throwable {
-																				           Log.d(TAG, throwable.toString());
-																           }
-												           }
-												);
-								compositeDisposable.add(disposable);
-				}
->>>>>>> Stashed changes
 
     @Override
     protected void onCleared() {
