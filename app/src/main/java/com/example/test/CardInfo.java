@@ -4,6 +4,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
 
+
 public class CardInfo implements Serializable {
 
     @SerializedName("scheme")

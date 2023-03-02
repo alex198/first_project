@@ -3,24 +3,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
     android:layout_marginTop="@dimen/margin_10"
-    android:layout_marginBottom="10dp">
+    android:layout_marginBottom="@dimen/margin_10"
+    android:orientation="vertical">
 
     <TextView
-        android:id="@+id/textViewStaticName"
+        android:id="@+id/textViewStaticCardInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="@dimen/text_size_16"
-        android:fontFamily="@font/adamina"
+        android:fontFamily="sans-serif"
         android:paddingStart="@dimen/margin_30"
+        android:textSize="@dimen/text_size_16"
         tools:text="SCHEME" />
 
     <TextView
-        android:id="@+id/textViewDataExport"
+        android:id="@+id/textViewCardInfoFromServer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/adamina"
+        android:fontFamily="sans-serif"
         android:paddingStart="@dimen/margin_30"
         android:textColor="@color/black"
         android:textSize="@dimen/text_size_22"

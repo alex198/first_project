@@ -1,5 +1,6 @@
 package com.example.test;
 
+import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,10 +17,18 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.CardVi
 
     private List<Map.Entry<String, String>> cards = new ArrayList<>();
 
+<<<<<<< Updated upstream
     public void setList(@NonNull Map<String, String> map) {
         this.cards = new ArrayList<>(map.entrySet());
         notifyDataSetChanged();
     }
+=======
+				@SuppressLint("NotifyDataSetChanged")
+				public void setList(@NonNull Map<String, String> map) {
+								this.cards = new ArrayList<>(map.entrySet());
+								notifyDataSetChanged();
+				}
+>>>>>>> Stashed changes
 
     @NonNull
     @Override
@@ -49,11 +58,20 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.CardVi
         private final TextView textViewStaticName;
         private final TextView textViewDataExport;
 
+<<<<<<< Updated upstream
         public CardViewHolder(@NonNull View itemView) {
             super(itemView);
             textViewStaticName = itemView.findViewById(R.id.textViewStaticName);
             textViewDataExport = itemView.findViewById(R.id.textViewDataExport);
         }
     }
+=======
+								public CardViewHolder(@NonNull View itemView) {
+												super(itemView);
+												textViewStaticName = itemView.findViewById(R.id.textViewStaticCardInfo);
+												textViewDataExport = itemView.findViewById(R.id.textViewCardInfoFromServer);
+								}
+				}
+>>>>>>> Stashed changes
 
 }
